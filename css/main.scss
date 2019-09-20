@@ -166,11 +166,13 @@ header{
     background:url(../img/backgrounds/hardblock.jpg) no-repeat top center / cover;padding-bottom:151px;
 
     .count>div{
-        counter-reset: unicornCounter;
+        counter-increment:unicornCounter;
 
-        >div{
-            &:after{content:''}
+        >div:after{
+            content:counter(unicornCounter);width: 30px;height: 30px;position: absolute;top: 76px;right: -28px;background:$color-darkgreen;border-radius: 100px;font:20px/30px $font-black;color: #fff;
+            @media(max-width:1199px){display:none}
         }
+        &:last-child>div:after{display:none}
     }
     
     img,svg{max-height:49px;color:$color-darkgreen}
